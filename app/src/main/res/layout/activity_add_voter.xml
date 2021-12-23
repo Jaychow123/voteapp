@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddVoter">
+    tools:context=".AddVoterActivity">
 
     <Button
         android:id="@+id/button2"
@@ -38,6 +38,7 @@
         android:fontFamily="@font/nunito_sans"
         android:hint="Voter ID"
         android:inputType="number"
+        android:maxLength="7"
         android:textAlignment="center"
         android:textColor="#090909"
         android:textSize="18sp"
@@ -57,6 +58,7 @@
         android:fontFamily="@font/nunito_sans"
         android:hint="Aadhar Number"
         android:inputType="number"
+        android:maxLength="12"
         android:textAlignment="center"
         android:textColor="#090909"
         android:textSize="18sp"
@@ -70,10 +72,11 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="43dp"
         android:layout_marginTop="54dp"
+        android:layout_marginBottom="43dp"
         android:fontFamily="@font/raleway"
         android:letterSpacing="0.1"
+        android:maxLength="12"
         android:text="Add Voter"
         android:textAlignment="center"
         android:textAllCaps="false"

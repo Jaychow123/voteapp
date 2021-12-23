@@ -1,4 +1,4 @@
-package com.example.votevellore;
+package com.example.votegvp;
 
 import org.junit.Test;
 

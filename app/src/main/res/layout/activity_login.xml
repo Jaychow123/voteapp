@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".LoginActivity">
 
     <Button
         android:id="@+id/button2"
@@ -56,6 +56,7 @@
         android:fontFamily="@font/nunito_sans"
         android:hint="Voter ID"
         android:inputType="textPersonName"
+        android:maxLength="7"
         android:textAlignment="center"
         android:textColor="#090909"
         android:textSize="18sp"
@@ -80,8 +81,8 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="43dp"
         android:layout_marginTop="54dp"
+        android:layout_marginBottom="43dp"
         android:fontFamily="@font/raleway"
         android:letterSpacing="0.1"
         android:text="Login"

@@ -1,24 +1,15 @@
-package com.example.votevellore;
+package com.example.votegvp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class ViewParties extends AppCompatActivity {
+public class ViewPartiesActivity extends AppCompatActivity {
     DBConnection controllerdb = new DBConnection(this);
     SQLiteDatabase db;
 
@@ -50,7 +41,7 @@ public class ViewParties extends AppCompatActivity {
                 CName.add(cursor.getString(cursor.getColumnIndex("candidate")));
             } while (cursor.moveToNext());
         }
-        CustomAdapter ca = new CustomAdapter(ViewParties.this, Name,CName);
+        CustomAdapter ca = new CustomAdapter(ViewPartiesActivity.this, Name,CName);
         lv.setAdapter(ca);
         //code to set adapter to populate list
         cursor.close();

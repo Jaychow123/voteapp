@@ -1,4 +1,4 @@
-package com.example.votevellore;
+package com.example.votegvp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,36 +9,40 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class ResultsAdmin extends AppCompatActivity {
+public class ResultsAdminActivity extends AppCompatActivity {
+
     DBConnection controllerdb = new DBConnection(this);
     SQLiteDatabase db;
-    private ArrayList<String> Name = new ArrayList<String>();
-    private ArrayList<String> Count = new ArrayList<String>();
+    private ArrayList<String> names = new ArrayList<String>();
+    private ArrayList<String> partyCounts = new ArrayList<String>();
     ListView lv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results_admin);
         lv = (ListView) findViewById(R.id.lvresults);
     }
+
     protected void onResume() {
         displayData();
         super.onResume();
     }
+
     private void displayData() {
         db = controllerdb.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT partyname,count(partyname) FROM  Votes group by partyname order by count(partyname) desc",null);
+        Cursor cursor = db.rawQuery("SELECT partyname,count(partyname) FROM  Votes group by partyname order by count(partyname) desc", null);
 
-        Name.clear();
-        Count.clear();
+        names.clear();
+        partyCounts.clear();
 
         if (cursor.moveToFirst()) {
             do {
-                Name.add(cursor.getString(cursor.getColumnIndex("partyname")));
-                Count.add(cursor.getString(cursor.getColumnIndex("count(partyname)")));
+                names.add(cursor.getString(cursor.getColumnIndex("partyname")));
+                partyCounts.add(cursor.getString(cursor.getColumnIndex("count(partyname)")));
             } while (cursor.moveToNext());
         }
-        CustomAdapter ca = new CustomAdapter(ResultsAdmin.this, Name,Count);
+        CustomAdapter ca = new CustomAdapter(ResultsAdminActivity.this, names, partyCounts);
         lv.setAdapter(ca);
         //code to set adapter to populate list
         cursor.close();
